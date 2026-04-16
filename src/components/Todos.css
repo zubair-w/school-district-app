@@ -1,0 +1,92 @@
+.todos-container {
+  max-width: 540px;
+  margin: 60px auto;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.todos-container h1 {
+  margin: 0 0 24px;
+  font-size: 28px;
+}
+
+.todos-input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.todos-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-h);
+  font-size: 15px;
+  outline: none;
+}
+
+.todos-input:focus {
+  border-color: var(--accent);
+}
+
+.todos-input.edit {
+  flex: 1;
+}
+
+.todos-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.todos-btn:hover { opacity: 0.85; }
+
+.todos-btn.add    { background: var(--accent); color: #fff; }
+.todos-btn.edit   { background: rgba(255,255,255,0.15); color: var(--text-h); }
+.todos-btn.delete { background: #ef4444; color: #fff; }
+.todos-btn.save   { background: #22c55e; color: #fff; }
+.todos-btn.cancel { background: rgba(255,255,255,0.15); color: var(--text-h); }
+
+.todos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todos-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+}
+
+.todos-item.completed .todos-title {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.todos-title {
+  flex: 1;
+  font-size: 15px;
+  color: var(--text-h);
+}
+
+.todos-status {
+  text-align: center;
+  opacity: 0.6;
+  font-size: 15px;
+}

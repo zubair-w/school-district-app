@@ -37,7 +37,7 @@ jobs:
         if: github.event_name == 'push'
         uses: supabase/setup-cli@v1
         with:
-          version: 2.20.12
+          version: 2.90.0
 
       - name: Link Supabase project
         if: github.event_name == 'push'

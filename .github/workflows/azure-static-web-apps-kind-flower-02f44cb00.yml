@@ -12,7 +12,7 @@ on:
       - test
 
 concurrency:
-  group: swa-${{ github.ref_name }}
+  group: swa-${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
-    environment: ${{ github.ref_name == 'test' && 'test' || 'production' }}
+    environment: ${{ (github.event_name == 'pull_request' && github.base_ref || github.ref_name) == 'test' && 'test' || 'production' }}
     permissions:
       id-token: write
       contents: read
@@ -73,7 +73,7 @@ jobs:
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "dist" # Built app content directory - optional
-          deployment_environment: ${{ github.ref_name == 'test' && 'test' || '' }}
+          deployment_environment: ${{ (github.event_name == 'pull_request' && github.base_ref || github.ref_name) == 'test' && 'test' || '' }}
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 

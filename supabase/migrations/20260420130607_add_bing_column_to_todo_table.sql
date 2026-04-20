@@ -1,0 +1,1 @@
+alter table todos add column if not exists bing text;
